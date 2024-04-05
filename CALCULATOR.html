@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+    
+    #calculator {
+        width: 300px;
+        margin: auto;
+        background-color: black;
+    }
+    
+    #display {
+        width: 100%;
+        height: 50px;
+        text-align: left;
+        margin-bottom: 10px;
+        background-color: grey;
+    }
+    
+    #buttons {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+    }
+    
+    button {
+        height: 40px;
+        font-size: 18px;
+    }
+    
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <input type="text" id="display" disabled>
+        <div id="buttons">
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="appendNumber(7)">7</button>
+            <button onclick="appendNumber(8)">8</button>
+            <button onclick="appendNumber(9)">9</button>
+            <button onclick="chooseOperation('+')">+</button>
+            <button onclick="appendNumber(4)">4</button>
+            <button onclick="appendNumber(5)">5</button>
+            <button onclick="appendNumber(6)">6</button>
+            <button onclick="chooseOperation('-')">-</button>
+            <button onclick="appendNumber(1)">1</button>
+            <button onclick="appendNumber(2)">2</button>
+            <button onclick="appendNumber(3)">3</button>
+            <button onclick="chooseOperation('*')">*</button>
+            <button onclick="appendNumber(0)">0</button>
+            <button onclick="calculateResult()">=</button>
+            <button onclick="chooseOperation('/')">/</button>
+        </div>
+    </div>
+    <script>
+        let display = document.getElementById('display');
+let currentInput = '';
+let previousInput = '';
+let operation = null;
+
+function appendNumber(number) {
+    currentInput += number;
+    display.value = currentInput;
+}
+
+function clearDisplay() {
+    currentInput = '';
+    previousInput = '';
+    operation = null;
+    display.value = '';
+}
+
+function chooseOperation(op) {
+    if (op !== '+' && op !== '-' && op !== '*' && op !== '/') return;
+    if (currentInput === '') return;
+    if (previousInput !== '') calculateResult();
+    operation = op;
+    previousInput = currentInput;
+    currentInput = '';
+}
+
+function calculateResult() {
+    if (operation === null || previousInput === '') return;
+    let result = eval(previousInput + operation + currentInput);
+    display.value = result;
+    currentInput = result.toString();
+    previousInput = '';
+    operation = null;
+}
+    </script>
+</body>
+</html>

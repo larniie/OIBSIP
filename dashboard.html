@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        .dashboard {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: "open sans", sans-serif;
+    background-color: black;
+    background-image: url("https://png.pngtree.com/png-clipart/20220125/ourmid/pngtree-star-river-galaxy-universe-star-sky-hand-painted-material-star-sea-png-image_4274729.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 20px;
+    color: whitesmoke;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.news-feed {
+  margin-top: 2rem;
+}
+
+.news-item {
+  margin-bottom: 2rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.news-item h2 {
+  margin-top: 0;
+}
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Welcome to the Dashboard</h1>
+        <a href="registration.html" class="button">Register</a><br>
+        <a href="login-authentication.html" class="button">Login</a>
+        <div class="news-feed">
+            <div class="news-item">
+                <h2>News Headline 1</h2>
+                <p>Resturant chain collapses in Australia - leaving future uncertain.</p>
+            </div>
+            <div class="news-item">
+                <h2>News Headline 2</h2>
+                <p>Tension flares as former EFF leader attacks party president Julius Malema</p>
+            </div>
+            <div class="news-item">
+                <h2>News Headline 3</h2>
+                <p>New poll shows Biden winning this key swing state by 10 points after First Lady snapped 'No he's not losing' and president accused media of not reporting surveys in.</p>
+            </div>
+        </div>
+        <a href="login-authentication.html" class="button">Logout</button></a>
+    </div>
+    <script>
+        document.getElementById('logout-button').addEventListener('click', function() {
+           
+            fetch('/logout', { method: 'POST' })
+                .then(function() {
+                    window.location.href = '/login';
+                });
+        });
+    </script>
+</body>
+</html>

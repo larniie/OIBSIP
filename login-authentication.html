@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .form-group {
+  margin-bottom: 1rem;
+}
+
+body {
+    font-family: "open sans", sans-serif;
+    background-color: black;
+    background-image: url("https://png.pngtree.com/png-clipart/20220125/ourmid/pngtree-star-river-galaxy-universe-star-sky-hand-painted-material-star-sea-png-image_4274729.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-size: 20px;
+    color: whitesmoke;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+
+}
+
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    <form action="dashboard.html" class="loginform"></form>
+    <form id="login-form">
+        <div class="form-group">
+            <h1>Login</h1>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+        <p class="text-center"><a href="registration.html">Don't have an account? register here.</a></p>
+    </form>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            document.getElementById('email').value = '';
+            document.getElementById('password').value = '';
+
+            alert('Login successful');
+        });
+    </script>
+</body>
+</html>
